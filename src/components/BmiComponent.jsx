@@ -1,10 +1,47 @@
 import React, { useState } from "react";
 
+import styled from "styled-components";
+
+const Input = styled.input`
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 30px;
+`;
+
+const Button = styled.button`
+    width: 100px;
+    height: 30px;
+    background-color: rebeccapurple;
+    border: 1px solid blue;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    color: white;
+`;
+
+const Div = styled.div`
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 30px;
+`;
+
+const Tittle = styled.h2`
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+`;
+
 function BmiComponent() {
     const [data, setData] = useState({
         height: 0,
         weight: 0,
-        // result: "",
     });
 
     function handleChange(event) {
@@ -32,24 +69,28 @@ function BmiComponent() {
     }
 
     return (
-        <div>
-            <h2>BMI Calculator</h2>
-            <input
+        <Div AS="div">
+            <Tittle>BMI Calculator</Tittle>
+            <Input
+                as="input"
                 type="text"
                 name="height"
                 onChange={handleChange}
-                placeholder="height(meters)"
+                placeholder="Height (m)"
                 value={data.height}
             />
-            <input
+            <Input
+                as="input"
                 type="text"
                 name="weight"
                 onChange={handleChange}
-                placeholder="weight(kg)"
+                placeholder="Weight (kg)"
                 value={data.weight}
             />
-            <button onClick={handleClick}>Calculate</button>
-        </div>
+            <Button as="button" onClick={handleClick}>
+                Calculate
+            </Button>
+        </Div>
     );
 }
 

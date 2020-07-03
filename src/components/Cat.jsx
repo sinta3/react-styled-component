@@ -2,25 +2,42 @@ import React, { useState } from "react";
 
 import styled from "styled-components";
 
-const input = styled.input`
+const Input = styled.input`
     width: 100px;
     height: 30px;
     text-align: center;
-`;
-
-const button = styled.button`
-    width: 80px;
-    height: 30px;
-    background-color: white;
-    border: 1px solid blue;
-`;
-
-const div = styled.div`
     margin: auto;
+    padding: 0;
+    margin-bottom: 30px;
+`;
+
+const Button = styled.button`
+    width: 100px;
+    height: 30px;
+    background-color: rebeccapurple;
+    border: 1px solid blue;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    color: white;
+`;
+
+const Div = styled.div`
+    margin: auto;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 30px;
 `;
+
+const Tittle = styled.h2`
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+`;
+
 function Cat() {
     const [age, setAge] = useState(0);
 
@@ -30,21 +47,22 @@ function Cat() {
 
     function handleClick() {
         if (age == 1) {
-            alert(`${age} tahun umur kucing adalah 15 tahun manusia`);
+            alert(`${age} Cat age is 15 year in Human Age`);
         } else if (age == 2) {
-            alert(`${age} tahun umur kucing adalah 24 tahun manusia`);
+            alert(`${age} Cat age is 24 year in Human Age`);
         } else if (age > 2) {
             let result = (age - 2) * 4 + 24;
-            alert(`${age} tahun umur kucing adalah ${result} tahun manusia`);
+            alert(`${age} Cat age is ${result} year in Human Age`);
         } else {
-            alert(`input anda salah`);
+            alert(`Your input is wrong`);
         }
     }
 
     return (
-        <div>
-            <h2>Cat Age Converter</h2>
-            <input
+        <Div as="div">
+            <Tittle>Cat Age Converter</Tittle>
+            <Input
+                as="input"
                 type="text"
                 name="age"
                 onChange={handleChange}
@@ -52,8 +70,10 @@ function Cat() {
                 value={age}
             />
 
-            <button onClick={handleClick}>Calculate</button>
-        </div>
+            <Button as="button" onClick={handleClick}>
+                Calculate
+            </Button>
+        </Div>
     );
 }
 

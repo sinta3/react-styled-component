@@ -1,5 +1,43 @@
 import React, { useState } from "react";
 
+import styled from "styled-components";
+
+const Input = styled.input`
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 30px;
+`;
+
+const Button = styled.button`
+    width: 100px;
+    height: 30px;
+    background-color: rebeccapurple;
+    border: 1px solid blue;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    color: white;
+`;
+
+const Div = styled.div`
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 30px;
+`;
+
+const Tittle = styled.h2`
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+`;
+
 function TransformComp() {
     const [text, setText] = useState("");
 
@@ -25,18 +63,21 @@ function TransformComp() {
     }
 
     return (
-        <div>
-            <h2>Transform Text</h2>
-            <input
+        <Div as="div">
+            <Tittle>Transform Text</Tittle>
+            <Input
+                as="input"
                 type="text"
                 name="text"
                 onChange={handleChange}
-                placeholder="text"
+                placeholder="Text"
                 value={text}
             />
 
-            <button onClick={handleClick}>Converte</button>
-        </div>
+            <Button as="button" onClick={handleClick}>
+                Transform
+            </Button>
+        </Div>
     );
 }
 
