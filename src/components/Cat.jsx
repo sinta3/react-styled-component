@@ -47,12 +47,12 @@ function Cat() {
 
     function handleClick() {
         if (age == 1) {
-            alert(`${age} Cat age is 15 year in Human Age`);
+            alert(`${age} years cat  is 15 years in human age`);
         } else if (age == 2) {
-            alert(`${age} Cat age is 24 year in Human Age`);
+            alert(`${age} years cat is 24 years in human age`);
         } else if (age > 2) {
             let result = (age - 2) * 4 + 24;
-            alert(`${age} Cat age is ${result} year in Human Age`);
+            alert(`${age} years cat is ${result} years in human age`);
         } else {
             alert(`Your input is wrong`);
         }
